@@ -1,0 +1,80 @@
+역명이 다르고 역 코드가 같은 경우가 있음 - > 이러면 인덱스 번호로 구분해야하거나 역명을 따로하든지 해야함
+
+전역변수
+
+
+환승판정 최소거리 판정돌때 element 구조체[i][j]의 ic의 여부로 검사
+
+구조체에 호선코드를 추가할까?
+
+호선은 파일명 리스트를 돚거하자
+
+
+
+인접행렬 csv 불러올때 for문으로 i ( 0 ~ 17 ) 로 돌린다 (csv 리스트)
+    n호선 구분은 csv 첫줄만 읽어서 cnt하고 cnt-1만큼 i번째 역명리스트를 추가해주면 되겠지?
+    (가능하면 아래꺼랑 합쳐서)
+
+
+인접행렬 csv 불러올때 for문으로 i( 0 ~ 17 ) 로 돌린다 (csv 리스트)
+
+    
+    cnt=0;
+    그리고 while (!peof) 
+        cnt++
+	    for k를 돌려서 (아닌가?) k=cnt?
+        	strtok하고 인접행렬에 때려박는다(호선명 제외)
+            	->tmp[j][k]=asdasd
+
+
+출발역이 환승역이면 그냥 호선을 고르게 만들까
+
+도착역이 환승역인데 환승할것같으면 걍 스킵시키자 
+
+나오고 환승정보(19)를 역코드 비교해가면서 삽입해주고 ic=TRUE함
+
+
+
+최소환승은 어캐하냐
+
+
+735(내방)<->736(이수) = 2분
+
+431(동작)<->432(이수) = 3분
+
+432(이수)<->736(이수) = 8분
+
+근데 환승시간 1~3분은 대체뭐지?
+
+
+최소환승하고싶으면 걍 1000분 가중치박아버리기
+
+도착역도 여러개로 해야할듯
+
+그리고 환승비교 매키너지므도 어떻게 해야할듯 ㅇㅇ
+
+
+
+
+void debug_print(element** subarray,sublist subinfo[],int debug){ //디버그용
+    if (debug==1){
+        for(int i=0;i<R;i++){
+            for (int j = 0; j < R; j++){
+                if(subarray[i][j].data!=9999&&subarray[i][j].data!=0){
+                    if(subarray[i][j].ic==TRUE){
+                        printf("[%d -> %d] : %d ", i,j,subarray[i][j].data);
+                        printf("[%s (%s) -> %s (%s)] 환승\n", subarray[i][j].from,csvLists[subinfo[i].num],subarray[i][j].to,csvLists[subinfo[j].num]);
+                    }
+                    else{
+                        printf("[%d -> %d] : %d ", i,j,subarray[i][j].data);
+                        printf("[%s -> %s]\n", subarray[i][j].from,subarray[i][j].to);
+                    }
+                }
+            }
+        }
+        
+        for(int i=0;i<R;i++){
+            printf("%d) %s - %s (%s)\n",i,subinfo[i].code,subinfo[i].name,csvLists[subinfo[i].num]);
+        }
+    }
+}
